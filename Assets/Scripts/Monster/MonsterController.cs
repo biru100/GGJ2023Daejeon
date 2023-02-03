@@ -220,7 +220,16 @@ public class MonsterController : MonoBehaviour
     private void Search()
     { // SearchRange에서 가장 가까운 범위의 적을 찾는 메서드.
 
-        Collider2D[] colls = Physics2D.OverlapCircleAll(transform.position, monsterStatus.m_searchRange, LayerMask.GetMask("Enemy"));
+        string targetString = "";
+        if(m_monsterType == MonsterType.INSAM)
+        {
+            targetString = "Zombie";
+        }
+        else
+        {
+            targetString = "Insam";
+        }
+        Collider2D[] colls = Physics2D.OverlapCircleAll(transform.position, monsterStatus.m_searchRange, LayerMask.GetMask(targetString));
 
         foreach (var coll in colls)
         {
@@ -260,4 +269,8 @@ public class MonsterController : MonoBehaviour
 
     #endregion
 
+    public int GetCost()
+    {
+        return monsterStatus.m_cost;
+    }
 }

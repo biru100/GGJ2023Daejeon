@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2748172326370080668}
   - component: {fileID: 2748172326370080670}
   - component: {fileID: 2748172326370080669}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: HitBox)_Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 2748172327226697680}
   - component: {fileID: 2748172327226697681}
   - component: {fileID: 2748172327226697685}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}

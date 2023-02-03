@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7b73ed334c5f6144906ab6ac48b3b37, type: 3}
+  m_Name: StrongZombie
+  m_EditorClassIdentifier: 
+  m_monsterType: 1
+  m_texture:
+  - {fileID: 21300000, guid: c362bda842e672347a81f6e1aba0f9a7, type: 3}
+  - {fileID: 21300000, guid: ed13fe6e0d390e341a4a0ca24c187426, type: 3}
+  m_reverseTexutre:
+  - {fileID: 21300000, guid: efd07ceae61deb3468d5f6b92df6b5a4, type: 3}
+  - {fileID: 21300000, guid: e603ad1e45e1b2f4baae07883c9b3304, type: 3}
+  m_hp: 3
+  m_damage: 10
+  m_searchRange: 20
+  m_attackRange: 4
+  m_moveSpeed: 28
+  m_attackSpeed: 0
+  m_attackDelay: 0.77
+  m_animTime: 0.15
+  m_monsterLife: 1
+  m_cost: 3

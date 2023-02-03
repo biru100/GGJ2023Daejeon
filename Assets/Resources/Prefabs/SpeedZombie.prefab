@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8544195677149611899}
   - component: {fileID: 8544195677149611892}
   - component: {fileID: 8544195677149611896}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: SpeedZombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee104a15e91219e48864fc9ce553ef91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterStatus: {fileID: 11400000, guid: 6cb4f6a9ab2e86049834a18f941855b1, type: 2}
+  monsterStatus: {fileID: 11400000, guid: 9f4116e1465632748b4b2213a9dcf1c1, type: 2}
   m_render: {fileID: 8544195677149611898}
   m_rig: {fileID: 8544195677149611899}
   m_hitBox: {fileID: 8544195678913200182}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 8544195678913200180}
   - component: {fileID: 8544195678913200182}
   - component: {fileID: 8544195678913200181}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: HitBox_Insam
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -28,5 +28,6 @@ public class MonsterStatus : ScriptableObject
 
 
     [Space(10)]
-    public bool m_monsterLife = false; 
+    public bool m_monsterLife = false;
+    public int m_cost = 0;
 }
