@@ -23,6 +23,7 @@ public class MonsterStatus : ScriptableObject
     [Space(10)]
     public float m_moveSpeed = .0f;
     public float m_attackSpeed = .0f;
+    public float m_attackDelay = .0f;
     public float m_animTime = .0f;
 
 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8544195677149611899}
   - component: {fileID: 8544195677149611892}
   - component: {fileID: 8544195677149611896}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpeedZombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 8544195678913200180}
   - component: {fileID: 8544195678913200182}
   - component: {fileID: 8544195678913200181}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HitBox_Insam
   m_TagString: Untagged
   m_Icon: {fileID: 0}

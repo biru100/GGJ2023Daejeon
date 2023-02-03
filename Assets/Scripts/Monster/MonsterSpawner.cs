@@ -21,7 +21,15 @@ public class MonsterSpawner : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.J))
         {
             Spawn(1, 0, false);
-        }    
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            Spawn(2, 0, true);
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            Spawn(3, 0, false);
+        }
     }
 
     void Spawn(int index, int gold, bool isInsam)

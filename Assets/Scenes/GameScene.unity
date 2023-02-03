@@ -1412,6 +1412,8 @@ MonoBehaviour:
   player1Spawner: {fileID: 1813730765}
   player2Spawner: {fileID: 360926222}
   monsterList:
+  - {fileID: 6127743460508356715, guid: c0c487696e88cf24fb6cc56cac3bf82d, type: 3}
+  - {fileID: 2748172327226697682, guid: a12d3423f48fa9741bb3f76e8ffd6568, type: 3}
   - {fileID: 8544195677149611893, guid: 34f4c0510411f594eb493275d6546144, type: 3}
   - {fileID: 8544195677149611893, guid: b87d8d68fb704f046b6f07876c88fe45, type: 3}
 --- !u!1 &1732319678

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6127743460508356709}
   - component: {fileID: 6127743460508356714}
   - component: {fileID: 6127743460508356710}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Insam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6127743460508356715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.42, y: -0.11925496, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6127743461890201386}
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 6127743461890201386}
   - component: {fileID: 6127743461890201384}
   - component: {fileID: 6127743461890201387}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HitBox_Insam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
