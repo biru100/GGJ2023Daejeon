@@ -19,10 +19,10 @@ MonoBehaviour:
   m_reverseTexutre:
   - {fileID: 21300000, guid: efd07ceae61deb3468d5f6b92df6b5a4, type: 3}
   - {fileID: 21300000, guid: e603ad1e45e1b2f4baae07883c9b3304, type: 3}
-  m_hp: 35
+  m_hp: 40
   m_damage: 3
-  m_searchRange: 12
-  m_attackRange: 4
+  m_searchRange: 5
+  m_attackRange: 3
   m_moveSpeed: 15
   m_attackSpeed: 0
   m_attackDelay: 1.42

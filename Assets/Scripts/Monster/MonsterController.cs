@@ -139,8 +139,9 @@ public class MonsterController : MonoBehaviour
             if ((m_targetObj.transform.position - transform.position).magnitude < monsterStatus.m_attackRange)
             {
                 m_monsterStateType = MonsterStateType.ATTACK;
+                m_rig.constraints = RigidbodyConstraints2D.FreezeAll;
                 m_rig.velocity = Vector2.zero;
-
+                attackOldTime = Time.time;
             }
         }
         if(Time.time - animOldTime > monsterStatus.m_animTime)
@@ -194,7 +195,24 @@ public class MonsterController : MonoBehaviour
 
     private void Attack()
     {
-        if(Time.time - attackOldTime < monsterStatus.m_attackDelay)
+        string targetString = "";
+        if (m_monsterType == MonsterType.INSAM)
+        {
+            targetString = "Zombie";
+        }
+        else
+        {
+            targetString = "Insam";
+        }
+        Collider2D[] colls = Physics2D.OverlapCircleAll(transform.position, monsterStatus.m_searchRange, LayerMask.GetMask(targetString));
+        if(colls.Length <= 0)
+        {
+            m_monsterStateType = MonsterStateType.MOVE;
+            specialMove = false;
+            m_rig.constraints = RigidbodyConstraints2D.FreezeRotation;
+            return;
+        }
+        if (Time.time - attackOldTime < monsterStatus.m_attackDelay)
         {
             return;
         }

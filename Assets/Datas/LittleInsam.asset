@@ -21,8 +21,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e603ad1e45e1b2f4baae07883c9b3304, type: 3}
   m_hp: 4
   m_damage: 1
-  m_searchRange: 20
-  m_attackRange: 8
+  m_searchRange: 10
+  m_attackRange: 5
   m_moveSpeed: 20
   m_attackSpeed: 0
   m_attackDelay: 0.5
