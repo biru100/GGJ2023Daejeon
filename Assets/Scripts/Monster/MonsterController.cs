@@ -23,6 +23,10 @@ public class MonsterController : MonoBehaviour
 
     private bool specialMove = false;
 
+    [SerializeField]
+    private MonsterStateType m_monsterStateType;
+
+
     private void Awake()
     {
         if (monsterStatus == null)
@@ -49,20 +53,32 @@ public class MonsterController : MonoBehaviour
                 // Hit Box 생성 -> 크기 설정
                 m_hitBox.SetRadius(monsterStatus.m_attackRange);
 
-                // 캐릭터 생명 부여
+                // 몬스터 생명 부여
                 monsterStatus.m_monsterLife = true;
+
+                // 몬스터 상태 부여
+                m_monsterStateType = MonsterStateType.IDLE;
 
             }
         }
     }
 
+    #region LifeCycle
+
     private void Update()
     {
         if (monsterStatus.m_monsterLife)
         {
-            Move();
-            Search();
+            if (m_monsterStateType == MonsterStateType.IDLE)
+            {
+                m_monsterStateType = MonsterStateType.MOVE;
+            }
 
+            if (m_monsterStateType == MonsterStateType.MOVE)
+            {
+                Move();
+                Search();
+            }
         }
     }
 
@@ -71,6 +87,10 @@ public class MonsterController : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireSphere(transform.position, monsterStatus.m_searchRange);
     }
+
+    #endregion
+
+    #region Private
 
     private void Move()
     {
@@ -81,16 +101,21 @@ public class MonsterController : MonoBehaviour
             if (monsterStatus.m_monsterType == MonsterType.ZOMBIE)
                 m_rig.velocity = Vector2.left * monsterStatus.m_moveSpeed;
         }
-        else if (specialMove)
+        else if (specialMove && m_targetObj != null)
         {
-            if (m_targetObj != null)
+            // m_target까지의 오브젝트를 가져오고, 정규화 진행 후
+            var dir = (m_targetObj.transform.position - transform.position).normalized;
+            // velocity에서 해당 방향으로 스피드를 더해주고
+            m_rig.velocity = dir * monsterStatus.m_moveSpeed;
+            
+            if((m_targetObj.transform.position - transform.position).magnitude > 0.01f)
             {
-                // 가까운 곳으로 잡혔다는 가정 중.
-
+                Debug.Log("도착");
+                m_monsterStateType = MonsterStateType.ATTACK;
             }
         }
     }
-
+   
     private void Death()
     {
         // 사망시킨 객체 판별
@@ -98,11 +123,15 @@ public class MonsterController : MonoBehaviour
 
     private void Attack()
     {
+        // 일반 공격 (단일)
+
+        // 일반 공격 (복수)
+
+
         // 특수 공격이 존재함.
 
         // 특수공격1.Attack()
         // 특수공격2.Attack()
-
     }
 
     private void Search()
@@ -130,6 +159,7 @@ public class MonsterController : MonoBehaviour
             else if (gameObject.name == coll.gameObject.name && colls.Length <= 1)
             {
                 specialMove = false;
+
             }
         }
     }
@@ -144,4 +174,7 @@ public class MonsterController : MonoBehaviour
 
         return null;
     }
+
+    #endregion
+
 }
