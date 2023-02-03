@@ -107,11 +107,15 @@ public class MonsterController : MonoBehaviour
             var dir = (m_targetObj.transform.position - transform.position).normalized;
             // velocity에서 해당 방향으로 스피드를 더해주고
             m_rig.velocity = dir * monsterStatus.m_moveSpeed;
-            
-            if((m_targetObj.transform.position - transform.position).magnitude > 0.01f)
+
+            Debug.Log((m_targetObj.transform.position - transform.position).magnitude);
+
+            if ((m_targetObj.transform.position - transform.position).magnitude < 1.1f)
             {
-                Debug.Log("도착");
+
                 m_monsterStateType = MonsterStateType.ATTACK;
+                m_rig.velocity = Vector2.zero;
+
             }
         }
     }
