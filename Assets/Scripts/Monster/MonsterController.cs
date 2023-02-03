@@ -26,6 +26,10 @@ public class MonsterController : MonoBehaviour
     [SerializeField]
     private MonsterStateType m_monsterStateType;
 
+    private int animIndex = 0;
+    private float animOldTime;
+
+    private Sprite[] textureList;
 
     private void Awake()
     {
@@ -46,9 +50,16 @@ public class MonsterController : MonoBehaviour
                 // Texture 利侩 
                 // Insam = Normal, Zombie = Reverse
                 if (monsterStatus.m_monsterType == MonsterType.INSAM)
-                    m_render.sprite = monsterStatus.m_texture;
+                {
+                    textureList = monsterStatus.m_texture;
+                    m_render.sprite = monsterStatus.m_texture[0];
+                    m_render.flipX = true;
+                }
                 else if (monsterStatus.m_monsterType == MonsterType.ZOMBIE)
-                    m_render.sprite = monsterStatus.m_reverseTexutre;
+                {
+                    textureList = monsterStatus.m_reverseTexutre;
+                    m_render.sprite = monsterStatus.m_reverseTexutre[0];
+                }
 
                 // Hit Box 积己 -> 农扁 汲沥
                 m_hitBox.SetRadius(monsterStatus.m_attackRange);
@@ -117,6 +128,13 @@ public class MonsterController : MonoBehaviour
                 m_rig.velocity = Vector2.zero;
 
             }
+        }
+        if(Time.time - animOldTime > monsterStatus.m_animTime)
+        {
+            animOldTime = Time.time;
+            m_render.sprite = textureList[animIndex];
+            animIndex++;
+            animIndex %= textureList.Length;
         }
     }
    
