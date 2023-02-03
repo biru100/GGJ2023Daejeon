@@ -33,6 +33,12 @@ public class HitBox : MonoBehaviour
         // Collider ½Ã°¢È­ 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, m_collider.radius);
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
     }
 
     #endregion
