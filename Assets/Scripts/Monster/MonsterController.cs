@@ -195,28 +195,26 @@ public class MonsterController : MonoBehaviour
 
     private void Attack()
     {
-        string targetString = "";
-        if (m_monsterType == MonsterType.INSAM)
-        {
-            targetString = "Zombie";
-        }
-        else
-        {
-            targetString = "Insam";
-        }
+        string targetString = (m_monsterType == MonsterType.INSAM) ? "Zombie" : "Insam";
+
         Collider2D[] colls = Physics2D.OverlapCircleAll(transform.position, monsterStatus.m_searchRange, LayerMask.GetMask(targetString));
+
         if(colls.Length <= 0)
         {
             m_monsterStateType = MonsterStateType.MOVE;
             specialMove = false;
             m_rig.constraints = RigidbodyConstraints2D.FreezeRotation;
+
             return;
         }
+
         if (Time.time - attackOldTime < monsterStatus.m_attackDelay)
         {
             return;
         }
+
         attackOldTime = Time.time;
+
         if (m_targetObj)
         {
             if (m_targetObj.TryGetComponent<MonsterController>(out var m_monster))
