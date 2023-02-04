@@ -21,7 +21,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 776b90f757d5b7d4d8530afeffa4ce2b, type: 3}
   - {fileID: 21300000, guid: 7c733f146b4e062458940b4ad3ec26ea, type: 3}
   - {fileID: 21300000, guid: dc34b13cda7dde14095fd6dee0876eab, type: 3}
-  m_hp: 100
+  m_hp: 40
   m_damage: 3
   m_searchRange: 5
   m_attackRange: 4

@@ -6,26 +6,12 @@ using UnityEngine.UI;
 public class GameManager : Singleton<GameManager>
 {
     // ΩÃ±€≈Ê √≥∏Æ
-    [SerializeField]
-    private Image backgroundInsam;
-    [SerializeField]
-    private Image backgroundZombie;
-
-    float currentInsam;
-    float currentZombie;
     public GameObject monsterSpawnerObject;
     public GameObject player1;
     public GameObject player2;
     private void Start()
     {
         Time.timeScale = 1;
-        SetBackGround(0, 0);
-    }
-
-    public void SetBackGround(float insam, float zombie)
-    {
-        backgroundInsam.fillAmount = (Mathf.Max(currentInsam, insam) + 27) / 54;
-        backgroundZombie.fillAmount = (Mathf.Max(currentZombie, insam) + 27) / 54;
     }
 
     public void OnGameStart()
@@ -33,5 +19,10 @@ public class GameManager : Singleton<GameManager>
         monsterSpawnerObject.SetActive(true);
         player1.SetActive(true);
         player2.SetActive(true);
+    }
+
+    public void Retry()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }

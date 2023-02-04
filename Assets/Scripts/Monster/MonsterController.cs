@@ -92,22 +92,33 @@ public class MonsterController : MonoBehaviour
     {
         if (monsterStatus.m_monsterLife)
         {
+            if (m_monsterStateType == MonsterStateType.MOVE)
+            {
+                Move();
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if (monsterStatus.m_monsterLife)
+        {
             if (m_monsterStateType == MonsterStateType.IDLE)
             {
                 m_monsterStateType = MonsterStateType.MOVE;
             }
-
             if (m_monsterStateType == MonsterStateType.MOVE)
             {
-                Move();
                 Search();
             }
-
-            if (m_monsterStateType == MonsterStateType.ATTACK)
+            else if (m_monsterStateType == MonsterStateType.ATTACK)
             {
+                Search();
                 Attack();
             }
         }
+
+        m_render.color = Color.Lerp(m_render.color, Color.white, Time.deltaTime * 10);
     }
 
     private void LateUpdate()
@@ -170,6 +181,8 @@ public class MonsterController : MonoBehaviour
 
     public void Hit(int value, bool isPlayerAttack)
     {
+        if (m_render)
+            m_render.color = Color.red;
         hp -= value;
         isAttackPlayer = isPlayerAttack;
     }
@@ -244,7 +257,6 @@ public class MonsterController : MonoBehaviour
                     m_hitBox.GetMonsterList()[i].Hit(m_hitBox.GetMonsterList()[i].monsterStatus.m_damage, false);
                 }
             }
-
         }
     }
 

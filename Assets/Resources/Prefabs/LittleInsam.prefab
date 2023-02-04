@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2748172326370080668
 Transform:
   m_ObjectHideFlags: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
   m_hitBox: {fileID: 2748172326370080670}
   m_targetObj: {fileID: 0}
   m_monsterStateType: 0
-  m_attackType: 1
+  m_attackType: 0
 --- !u!58 &4552830832368002187
 CircleCollider2D:
   m_ObjectHideFlags: 0

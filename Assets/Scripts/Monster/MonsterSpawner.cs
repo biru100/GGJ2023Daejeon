@@ -25,8 +25,8 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField]
     GameObject[] monsterList;
 
-    float gold1 = 0;
-    float gold2 = 0;
+    public float gold1 = 0;
+    public float gold2 = 0;
 
     private void Update()
     {
