@@ -36,6 +36,7 @@ public class MonsterController : MonoBehaviour
     private bool isAttackPlayer;
 
     [Space(10)]
+    [SerializeField]
     private int m_attackType = 0;
 
     private Sprite[] textureList;

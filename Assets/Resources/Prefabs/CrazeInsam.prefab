@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_collider: {fileID: 2748172326370080669}
+  m_monsterControllerList: []
 --- !u!58 &2748172326370080669
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -189,6 +190,7 @@ MonoBehaviour:
   m_hitBox: {fileID: 2748172326370080670}
   m_targetObj: {fileID: 0}
   m_monsterStateType: 0
+  m_attackType: 0
 --- !u!58 &-8137438243110839729
 CircleCollider2D:
   m_ObjectHideFlags: 0
