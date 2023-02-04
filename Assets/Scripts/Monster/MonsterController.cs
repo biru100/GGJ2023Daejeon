@@ -274,7 +274,7 @@ public class MonsterController : MonoBehaviour
                 // 이동 방법을 스페셜하게 변경한다.
                 specialMove = true;
             }
-            else if (gameObject.name == coll.gameObject.name && colls.Length <= 1)
+            else if (gameObject.name == coll.gameObject.name && colls.Length <= 1 && coll.GetComponent<MonsterController>().m_monsterType == m_monsterType)
             {
                 specialMove = false;
             }
