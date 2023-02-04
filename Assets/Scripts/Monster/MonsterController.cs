@@ -27,11 +27,16 @@ public class MonsterController : MonoBehaviour
     private MonsterStateType m_monsterStateType;
 
     private MonsterType m_monsterType;
+
     private int hp;
     private int animIndex = 0;
+
     private float animOldTime;
     private float attackOldTime;
     private bool isAttackPlayer;
+
+    [Space(10)]
+    private int m_attackType = 0;
 
     private Sprite[] textureList;
 
@@ -82,7 +87,7 @@ public class MonsterController : MonoBehaviour
 
     #region LifeCycle
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (monsterStatus.m_monsterLife)
         {
@@ -97,7 +102,7 @@ public class MonsterController : MonoBehaviour
                 Search();
             }
 
-            if(m_monsterStateType == MonsterStateType.ATTACK)
+            if (m_monsterStateType == MonsterStateType.ATTACK)
             {
                 Attack();
             }
@@ -117,6 +122,13 @@ public class MonsterController : MonoBehaviour
 
     #endregion
 
+    #region Public
+    public MonsterStatus GetStatus()
+    {
+        return monsterStatus;
+    }
+    #endregion
+
     #region Private
 
     private void Move()
@@ -124,27 +136,29 @@ public class MonsterController : MonoBehaviour
         if (!specialMove)
         { // 일반 이동
             if (m_monsterType == MonsterType.INSAM)
-                m_rig.velocity = Vector2.right * monsterStatus.m_moveSpeed;
+                transform.Translate(Vector2.right * monsterStatus.m_moveSpeed * Time.deltaTime);
             if (m_monsterType == MonsterType.ZOMBIE)
-                m_rig.velocity = Vector2.left * monsterStatus.m_moveSpeed;
+                transform.Translate(Vector2.left * monsterStatus.m_moveSpeed * Time.deltaTime);
         }
         else if (specialMove && m_targetObj != null)
         {
             // m_target까지의 오브젝트를 가져오고, 정규화 진행 후
             var dir = (m_targetObj.transform.position - transform.position).normalized;
-            // velocity에서 해당 방향으로 스피드를 더해주고
-            m_rig.velocity = dir * monsterStatus.m_moveSpeed;
 
+            // velocity에서 해당 방향으로 스피드를 더해주고
+            transform.Translate(dir * monsterStatus.m_moveSpeed * Time.deltaTime);
 
             if ((m_targetObj.transform.position - transform.position).magnitude < monsterStatus.m_attackRange)
             {
                 m_monsterStateType = MonsterStateType.ATTACK;
+
                 m_rig.constraints = RigidbodyConstraints2D.FreezeAll;
+
                 m_rig.velocity = Vector2.zero;
                 attackOldTime = Time.time;
             }
         }
-        if(Time.time - animOldTime > monsterStatus.m_animTime)
+        if (Time.time - animOldTime > monsterStatus.m_animTime)
         {
             animOldTime = Time.time;
             m_render.sprite = textureList[animIndex];
@@ -153,7 +167,7 @@ public class MonsterController : MonoBehaviour
         }
     }
 
-    private void Hit(int value, bool isPlayerAttack)
+    public void Hit(int value, bool isPlayerAttack)
     {
         hp -= value;
         isAttackPlayer = isPlayerAttack;
@@ -174,7 +188,7 @@ public class MonsterController : MonoBehaviour
         }
         isAttackPlayer = false;
     }
-   
+
     private void Death()
     {
         // 사망시킨 객체 판별
@@ -183,7 +197,7 @@ public class MonsterController : MonoBehaviour
 
     private void ChangeTeam()
     {
-        if(m_monsterType == MonsterType.INSAM)
+        if (m_monsterType == MonsterType.INSAM)
         {
             m_monsterType = MonsterType.ZOMBIE;
         }
@@ -199,7 +213,7 @@ public class MonsterController : MonoBehaviour
 
         Collider2D[] colls = Physics2D.OverlapCircleAll(transform.position, monsterStatus.m_searchRange, LayerMask.GetMask(targetString));
 
-        if(colls.Length <= 0)
+        if (colls.Length <= 0)
         {
             m_monsterStateType = MonsterStateType.MOVE;
             specialMove = false;
@@ -217,27 +231,27 @@ public class MonsterController : MonoBehaviour
 
         if (m_targetObj)
         {
-            if (m_targetObj.TryGetComponent<MonsterController>(out var m_monster))
+            if (m_attackType == 0) // Normal  
             {
-                m_monster.Hit(monsterStatus.m_damage, false);
+                if (m_targetObj.TryGetComponent<MonsterController>(out var m_monster))
+                    m_monster.Hit(monsterStatus.m_damage, false);
             }
+            else if (m_attackType == 1)
+            {
+                for (var i = 0; i < m_hitBox.GetMonsterList().Count; ++i)
+                {
+                    m_hitBox.GetMonsterList()[i].Hit(m_hitBox.GetMonsterList()[i].monsterStatus.m_damage, false);
+                }
+            }
+
         }
-        // 일반 공격 (단일)
-
-        // 일반 공격 (복수)
-
-
-        // 특수 공격이 존재함.
-
-        // 특수공격1.Attack()
-        // 특수공격2.Attack()
     }
 
     private void Search()
     { // SearchRange에서 가장 가까운 범위의 적을 찾는 메서드.
 
         string targetString = "";
-        if(m_monsterType == MonsterType.INSAM)
+        if (m_monsterType == MonsterType.INSAM)
         {
             targetString = "Zombie";
         }

@@ -196,11 +196,11 @@ GameObject:
   - component: {fileID: 101289482}
   - component: {fileID: 101289481}
   - component: {fileID: 101289480}
-  - component: {fileID: 101289479}
   - component: {fileID: 101289483}
+  - component: {fileID: 101289479}
   m_Layer: 0
   m_Name: Insam
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 671309032}
   m_Layer: 0
   m_Name: Zombie (1)
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -624,7 +624,7 @@ GameObject:
   - component: {fileID: 893883966}
   m_Layer: 0
   m_Name: Zombie
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -779,7 +779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1760250181
 MonoBehaviour:
   m_ObjectHideFlags: 0

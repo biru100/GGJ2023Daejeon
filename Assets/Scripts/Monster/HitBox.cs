@@ -9,6 +9,9 @@ public class HitBox : MonoBehaviour
     [SerializeField]
     private CircleCollider2D m_collider;
 
+    [SerializeField]
+    private List<MonsterController> m_monsterControllerList;
+
     private void Awake()
     {
         m_collider = GetComponent<CircleCollider2D>();
@@ -22,6 +25,11 @@ public class HitBox : MonoBehaviour
     {
         // 초반에 Radius 세팅
         m_collider.radius = radius;
+    }
+
+    public List<MonsterController> GetMonsterList()
+    {
+        return m_monsterControllerList;
     }
 
     #endregion
@@ -38,7 +46,20 @@ public class HitBox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if(collision.CompareTag("Monster"))
+        {
+            collision.TryGetComponent<MonsterController>(out var monster);
+            m_monsterControllerList.Add(monster);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Monster"))
+        {
+            collision.collider.TryGetComponent<MonsterController>(out var monster);
+            m_monsterControllerList.Add(monster);
+        }
     }
 
     #endregion
