@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1170745073128412013}
   m_Layer: 6
   m_Name: Insam
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_hitBox: {fileID: 6127743461890201384}
   m_targetObj: {fileID: 0}
   m_monsterStateType: 0
+  m_attackType: 0
 --- !u!58 &1170745073128412013
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -189,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_collider: {fileID: 6127743461890201387}
+  m_monsterControllerList: []
 --- !u!58 &6127743461890201387
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5694032046727602465}
   m_Layer: 7
   m_Name: SpeedZombie
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   m_hitBox: {fileID: 8544195678913200182}
   m_targetObj: {fileID: 0}
   m_monsterStateType: 0
+  m_attackType: 0
 --- !u!58 &5694032046727602465
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -189,6 +190,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_collider: {fileID: 8544195678913200181}
+  m_monsterControllerList: []
 --- !u!58 &8544195678913200181
 CircleCollider2D:
   m_ObjectHideFlags: 0

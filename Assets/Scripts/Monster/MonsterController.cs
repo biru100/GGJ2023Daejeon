@@ -21,6 +21,7 @@ public class MonsterController : MonoBehaviour
     [SerializeField]
     private GameObject m_targetObj = null;
 
+    [SerializeField]
     private bool specialMove = false;
 
     [SerializeField]
@@ -36,6 +37,7 @@ public class MonsterController : MonoBehaviour
     private bool isAttackPlayer;
 
     [Space(10)]
+    [SerializeField]
     private int m_attackType = 0;
 
     private Sprite[] textureList;
@@ -105,6 +107,7 @@ public class MonsterController : MonoBehaviour
             if (m_monsterStateType == MonsterStateType.ATTACK)
             {
                 Attack();
+                Search();
             }
         }
     }
@@ -250,15 +253,8 @@ public class MonsterController : MonoBehaviour
     private void Search()
     { // SearchRange에서 가장 가까운 범위의 적을 찾는 메서드.
 
-        string targetString = "";
-        if (m_monsterType == MonsterType.INSAM)
-        {
-            targetString = "Zombie";
-        }
-        else
-        {
-            targetString = "Insam";
-        }
+        string targetString = (m_monsterType == MonsterType.INSAM) ? "Zombie" : "Insam";
+
         Collider2D[] colls = Physics2D.OverlapCircleAll(transform.position, monsterStatus.m_searchRange, LayerMask.GetMask(targetString));
 
         foreach (var coll in colls)
@@ -281,7 +277,6 @@ public class MonsterController : MonoBehaviour
             else if (gameObject.name == coll.gameObject.name && colls.Length <= 1)
             {
                 specialMove = false;
-
             }
         }
     }
