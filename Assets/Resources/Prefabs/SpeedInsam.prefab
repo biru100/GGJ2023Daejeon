@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8544195677149611898}
   - component: {fileID: 8544195677149611899}
   - component: {fileID: 8544195677149611892}
-  - component: {fileID: 8544195677149611896}
+  - component: {fileID: 3124836358624944938}
   m_Layer: 6
   m_Name: SpeedInsam
   m_TagString: Untagged
@@ -127,8 +127,8 @@ MonoBehaviour:
   m_hitBox: {fileID: 8544195678913200182}
   m_targetObj: {fileID: 0}
   m_monsterStateType: 0
---- !u!61 &8544195677149611896
-BoxCollider2D:
+--- !u!58 &3124836358624944938
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -141,18 +141,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
 --- !u!1 &8544195678913200183
 GameObject:
   m_ObjectHideFlags: 0

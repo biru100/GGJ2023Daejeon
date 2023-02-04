@@ -14,16 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_monsterType: 0
   m_texture:
-  - {fileID: 21300000, guid: c362bda842e672347a81f6e1aba0f9a7, type: 3}
-  - {fileID: 21300000, guid: ed13fe6e0d390e341a4a0ca24c187426, type: 3}
+  - {fileID: 21300000, guid: e530c5dd24967c34395b4424d4d1f21e, type: 3}
+  - {fileID: 21300000, guid: 04dd618be85736d4fa880c8c63100be4, type: 3}
+  - {fileID: 21300000, guid: ecce3e99b1c602346bf1ce968cbcb9ac, type: 3}
   m_reverseTexutre:
-  - {fileID: 21300000, guid: efd07ceae61deb3468d5f6b92df6b5a4, type: 3}
-  - {fileID: 21300000, guid: e603ad1e45e1b2f4baae07883c9b3304, type: 3}
-  m_hp: 40
+  - {fileID: 21300000, guid: 776b90f757d5b7d4d8530afeffa4ce2b, type: 3}
+  - {fileID: 21300000, guid: 7c733f146b4e062458940b4ad3ec26ea, type: 3}
+  - {fileID: 21300000, guid: dc34b13cda7dde14095fd6dee0876eab, type: 3}
+  m_hp: 100
   m_damage: 3
   m_searchRange: 5
-  m_attackRange: 3
-  m_moveSpeed: 15
+  m_attackRange: 4
+  m_moveSpeed: 3
   m_attackSpeed: 0
   m_attackDelay: 1.42
   m_animTime: 0.15

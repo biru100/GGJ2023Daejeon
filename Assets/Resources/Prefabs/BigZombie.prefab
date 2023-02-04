@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2748172326370080668}
   - component: {fileID: 2748172326370080670}
   - component: {fileID: 2748172326370080669}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: HitBox)_Zombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,8 +74,8 @@ GameObject:
   - component: {fileID: 2748172327226697687}
   - component: {fileID: 2748172327226697680}
   - component: {fileID: 2748172327226697681}
-  - component: {fileID: 2748172327226697685}
-  m_Layer: 6
+  - component: {fileID: -8382087436735104335}
+  m_Layer: 7
   m_Name: BigZombie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,8 +189,8 @@ MonoBehaviour:
   m_hitBox: {fileID: 2748172326370080670}
   m_targetObj: {fileID: 0}
   m_monsterStateType: 0
---- !u!61 &2748172327226697685
-BoxCollider2D:
+--- !u!58 &-8382087436735104335
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -203,15 +203,5 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5

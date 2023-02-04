@@ -23,7 +23,7 @@ MonoBehaviour:
   m_damage: 12
   m_searchRange: 8
   m_attackRange: 4
-  m_moveSpeed: 28
+  m_moveSpeed: 7
   m_attackSpeed: 0
   m_attackDelay: 0.77
   m_animTime: 0.15

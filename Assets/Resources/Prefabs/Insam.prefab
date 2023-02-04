@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6127743460508356708}
   - component: {fileID: 6127743460508356709}
   - component: {fileID: 6127743460508356714}
-  - component: {fileID: 6127743460508356710}
+  - component: {fileID: 1170745073128412013}
   m_Layer: 6
   m_Name: Insam
   m_TagString: Untagged
@@ -127,8 +127,8 @@ MonoBehaviour:
   m_hitBox: {fileID: 6127743461890201384}
   m_targetObj: {fileID: 0}
   m_monsterStateType: 0
---- !u!61 &6127743460508356710
-BoxCollider2D:
+--- !u!58 &1170745073128412013
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -141,18 +141,8 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
 --- !u!1 &6127743461890201385
 GameObject:
   m_ObjectHideFlags: 0
