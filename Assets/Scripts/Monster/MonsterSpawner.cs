@@ -17,6 +17,12 @@ public class MonsterSpawner : MonoBehaviour
     private TMP_Text gold2Text;
 
     [SerializeField]
+    private List<MonsterController> insamList = new List<MonsterController>();
+
+    [SerializeField]
+    private List<MonsterController> zombieList = new List<MonsterController>();
+
+    [SerializeField]
     GameObject[] monsterList;
 
     float gold1 = 0;
@@ -28,11 +34,11 @@ public class MonsterSpawner : MonoBehaviour
         gold2 += Time.deltaTime;
         gold1Text.text = gold1.ToString("N0");
         gold2Text.text = gold2.ToString("N0");
-        if(Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             Spawn(0, true);
         }
-        if(Input.GetKeyDown(KeyCode.J))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             Spawn(1, false);
         }
@@ -76,15 +82,23 @@ public class MonsterSpawner : MonoBehaviour
         {
             Spawn(11, false);
         }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log(GetHeadMonster(1).name);
+            Debug.Log(GetHeadMonster(2).name);
+        }
     }
 
     void Spawn(int index, bool isInsam)
     {
         int cost = monsterList[index].GetComponent<MonsterController>().GetCost();
-        if(isInsam)
+
+        if (isInsam)
         {
             if (gold1 - cost < 0)
                 return;
+
             gold1 -= cost;
         }
         else
@@ -95,8 +109,51 @@ public class MonsterSpawner : MonoBehaviour
         }
         gold1Text.text = gold1.ToString("N0");
         gold2Text.text = gold2.ToString("N0");
+
         Vector3 pos = isInsam ? player1Spawner.position : player2Spawner.position;
-        Instantiate(monsterList[index], pos, Quaternion.identity);
-        
+        var obj = Instantiate(monsterList[index], pos, Quaternion.identity);
+
+        if (isInsam)
+            insamList.Add(obj.GetComponent<MonsterController>());
+        else
+            zombieList.Add(obj.GetComponent<MonsterController>());
+    }
+
+    public Transform GetHeadMonster(int type)
+    {
+        if (type == 1)
+            return ForeachMonsterList(insamList, type).transform;
+        else if (type == 2)
+            return ForeachMonsterList(zombieList, type).transform;
+
+        return null;
+    }
+
+    private GameObject ForeachMonsterList(List<MonsterController> monsterList, int type)
+    {
+        GameObject resultObject = null;
+
+        if (monsterList.Count <= 0)
+            return null;
+
+        for (int i = 0; i < monsterList.Count; ++i)
+        {
+            if (resultObject == null)
+                resultObject = monsterList[i].gameObject;
+            else
+            {
+                if (type == 1)
+                {
+                    if (resultObject.transform.position.x < monsterList[i].gameObject.transform.position.x)
+                        resultObject = monsterList[i].gameObject;
+                }
+                else if(type == 2)
+                {
+                    if (resultObject.transform.position.x > monsterList[i].gameObject.transform.position.x)
+                        resultObject = monsterList[i].gameObject;
+                }
+            }
+        }
+        return resultObject;
     }
 }

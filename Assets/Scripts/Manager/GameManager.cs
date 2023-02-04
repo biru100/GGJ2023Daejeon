@@ -13,7 +13,9 @@ public class GameManager : Singleton<GameManager>
 
     float currentInsam;
     float currentZombie;
-
+    public GameObject monsterSpawnerObject;
+    public GameObject player1;
+    public GameObject player2;
     private void Start()
     {
         Time.timeScale = 1;
@@ -24,5 +26,12 @@ public class GameManager : Singleton<GameManager>
     {
         backgroundInsam.fillAmount = (Mathf.Max(currentInsam, insam) + 27) / 54;
         backgroundZombie.fillAmount = (Mathf.Max(currentZombie, insam) + 27) / 54;
+    }
+
+    public void OnGameStart()
+    {
+        monsterSpawnerObject.SetActive(true);
+        player1.SetActive(true);
+        player2.SetActive(true);
     }
 }
