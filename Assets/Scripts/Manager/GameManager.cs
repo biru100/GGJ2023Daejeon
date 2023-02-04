@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    // ΩÃ±€≈Ê √≥∏Æ
+    public GameObject monsterSpawnerObject;
+    public GameObject player1;
+    public GameObject player2;
 
+    public void OnGameStart()
+    {
+        monsterSpawnerObject.SetActive(true);
+        player1.SetActive(true);
+        player2.SetActive(true);
+    }
 }
