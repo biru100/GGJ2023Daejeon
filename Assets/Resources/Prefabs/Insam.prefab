@@ -126,6 +126,7 @@ MonoBehaviour:
   m_rig: {fileID: 6127743460508356709}
   m_hitBox: {fileID: 6127743461890201384}
   m_targetObj: {fileID: 0}
+  punchSound: {fileID: 5727821311545282938, guid: 5266638e24fac894596d5005808d3c6d, type: 3}
   hitEffect: {fileID: 8705978133196128498, guid: c6b858e2ea503084eb236682ac8fbc02, type: 3}
   scale: 2
   m_monsterStateType: 0

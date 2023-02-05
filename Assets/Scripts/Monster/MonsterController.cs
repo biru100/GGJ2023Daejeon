@@ -21,6 +21,8 @@ public class MonsterController : MonoBehaviour
     [SerializeField]
     private GameObject m_targetObj = null;
     [SerializeField]
+    private GameObject punchSound;
+    [SerializeField]
     private GameObject hitEffect;
     [SerializeField]
     private float scale;
@@ -195,6 +197,7 @@ public class MonsterController : MonoBehaviour
         if (m_render)
             m_render.color = Color.red;
         Instantiate(hitEffect, transform.position, transform.rotation).transform.localScale = Vector3.one * scale;
+        Instantiate(punchSound, transform.position, transform.rotation);
         hp -= value;
         isAttackPlayer = isPlayerAttack;
     }

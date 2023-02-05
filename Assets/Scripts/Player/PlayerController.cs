@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private string playerVertical;
     private int walkIndex = 0;
     private float walkOldTime;
+    private Vector2 dir;
     private void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -33,28 +34,30 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        Move();
-        spriteRenderer.flipX = rigid.velocity.x > 0;
-    }
-
-    void Move()
-    {
-        Vector2 dir = new Vector2(Input.GetAxisRaw(playerHorizontal), Input.GetAxisRaw(playerVertical)).normalized;
-
-        if(dir.magnitude == 0)
+        dir = new Vector2(Input.GetAxisRaw(playerHorizontal), Input.GetAxisRaw(playerVertical)).normalized;
+        if (dir.magnitude == 0)
         {
             spriteRenderer.sprite = idleSprite;
         }
-        else if (Time.time - walkOldTime > 0.1f)
+        else if (dir.magnitude > 0 && Time.time - walkOldTime > 0.2f)
         {
             walkOldTime = Time.time;
             spriteRenderer.sprite = walkSprite[walkIndex];
             walkIndex++;
             walkIndex %= walkSprite.Length;
+            spriteRenderer.flipX = dir.x > 0;
         }
+    }
 
+    private void FixedUpdate()
+    {
+        Move();
+    }
+
+    void Move()
+    {
         rigid.velocity = dir * speed * Time.deltaTime;
     }
 }

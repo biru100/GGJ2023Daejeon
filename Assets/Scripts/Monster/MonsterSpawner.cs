@@ -113,10 +113,12 @@ public class MonsterSpawner : MonoBehaviour
         Vector3 pos = isInsam ? player1Spawner.position : player2Spawner.position;
         var obj = Instantiate(monsterList[index], pos, Quaternion.identity);
 
+
         if (isInsam)
             insamList.Add(obj.GetComponent<MonsterController>());
         else
             zombieList.Add(obj.GetComponent<MonsterController>());
+
     }
 
     public Transform GetHeadMonster(int type)
