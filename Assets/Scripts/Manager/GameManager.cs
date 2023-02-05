@@ -23,6 +23,7 @@ public class GameManager : Singleton<GameManager>
 
     public void Retry()
     {
+        Destroy(gameObject);
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }

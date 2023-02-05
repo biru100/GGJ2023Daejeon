@@ -189,6 +189,8 @@ MonoBehaviour:
   m_rig: {fileID: 2748172327226697680}
   m_hitBox: {fileID: 2748172326370080670}
   m_targetObj: {fileID: 0}
+  hitEffect: {fileID: 8705978133196128498, guid: c6b858e2ea503084eb236682ac8fbc02, type: 3}
+  scale: 2
   m_monsterStateType: 0
   m_attackType: 0
 --- !u!58 &7836873273444486900

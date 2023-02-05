@@ -20,6 +20,10 @@ public class MonsterController : MonoBehaviour
 
     [SerializeField]
     private GameObject m_targetObj = null;
+    [SerializeField]
+    private GameObject hitEffect;
+    [SerializeField]
+    private float scale;
 
     private bool specialMove = false;
 
@@ -148,9 +152,15 @@ public class MonsterController : MonoBehaviour
         if (!specialMove)
         { // 일반 이동
             if (m_monsterType == MonsterType.INSAM)
+            {
                 transform.Translate(Vector2.right * monsterStatus.m_moveSpeed * Time.deltaTime);
+                m_render.flipX = true;
+            }
             if (m_monsterType == MonsterType.ZOMBIE)
+            {
                 transform.Translate(Vector2.left * monsterStatus.m_moveSpeed * Time.deltaTime);
+                m_render.flipX = false;
+            }
         }
         else if (specialMove && m_targetObj != null)
         {
@@ -159,6 +169,7 @@ public class MonsterController : MonoBehaviour
 
             // velocity에서 해당 방향으로 스피드를 더해주고
             transform.Translate(dir * monsterStatus.m_moveSpeed * Time.deltaTime);
+            m_render.flipX = dir.x > 0;
 
             if ((m_targetObj.transform.position - transform.position).magnitude < monsterStatus.m_attackRange)
             {
@@ -183,6 +194,7 @@ public class MonsterController : MonoBehaviour
     {
         if (m_render)
             m_render.color = Color.red;
+        Instantiate(hitEffect, transform.position, transform.rotation).transform.localScale = Vector3.one * scale;
         hp -= value;
         isAttackPlayer = isPlayerAttack;
     }

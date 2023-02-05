@@ -92,7 +92,7 @@ Transform:
   m_GameObject: {fileID: 2748172327226697682}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.66, y: 1.2, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2748172326370080668}
@@ -189,6 +189,8 @@ MonoBehaviour:
   m_rig: {fileID: 2748172327226697680}
   m_hitBox: {fileID: 2748172326370080670}
   m_targetObj: {fileID: 0}
+  hitEffect: {fileID: 8705978133196128498, guid: c6b858e2ea503084eb236682ac8fbc02, type: 3}
+  scale: 2
   m_monsterStateType: 0
   m_attackType: 0
 --- !u!58 &-7731868402720528311
